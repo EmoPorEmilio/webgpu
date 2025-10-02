@@ -1,7 +1,11 @@
-import { A } from "@solidjs/router";
-import { WebGPUTriangle } from "../components/WebGPUTriangle";
+import { createFileRoute, Link } from "@tanstack/solid-router";
+import { WebGPUTriangle } from "~/components/WebGPUTriangle";
 
-export default function Shader() {
+export const Route = createFileRoute("/shader")({
+	component: ShaderPage,
+});
+
+function ShaderPage() {
 	return (
 		<div
 			style={{
@@ -31,8 +35,8 @@ export default function Shader() {
 					WebGPU Triangle
 				</h1>
 
-				<A
-					href="/"
+				<Link
+					to="/"
 					style={{
 						padding: "0.75rem 1.5rem",
 						"font-size": "1rem",
@@ -54,7 +58,7 @@ export default function Shader() {
 					}}
 				>
 					← Back to Home
-				</A>
+				</Link>
 			</div>
 
 			<div

@@ -1,9 +1,17 @@
 import { defineConfig } from "vite";
-import solid from "vite-plugin-solid";
+import { tanstackStart } from "@tanstack/solid-start/plugin/vite";
+import tsConfigPaths from "vite-tsconfig-paths";
+import viteSolid from "vite-plugin-solid";
 
 export default defineConfig({
-	plugins: [solid()],
 	server: {
 		port: 3000,
 	},
+	plugins: [
+		tsConfigPaths({
+			projects: ["./tsconfig.json"],
+		}),
+		tanstackStart(),
+		viteSolid({ ssr: true }),
+	],
 });

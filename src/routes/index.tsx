@@ -1,6 +1,10 @@
-import { A } from "@solidjs/router";
+import { createFileRoute, Link } from "@tanstack/solid-router";
 
-export default function Home() {
+export const Route = createFileRoute("/")({
+	component: Home,
+});
+
+function Home() {
 	return (
 		<div
 			style={{
@@ -33,12 +37,12 @@ export default function Home() {
 					"max-width": "600px",
 				}}
 			>
-				A simple demonstration of rendering a triangle using WebGPU with Vite,
-				Bun, and Solid.js
+				A simple demonstration of rendering a triangle using WebGPU with
+				TanStack Start (Solid.js)
 			</p>
 
-			<A
-				href="/shader"
+			<Link
+				to="/shader"
 				style={{
 					padding: "1rem 2rem",
 					"font-size": "1.1rem",
@@ -64,7 +68,7 @@ export default function Home() {
 				}}
 			>
 				View Triangle Shader
-			</A>
+			</Link>
 		</div>
 	);
 }
